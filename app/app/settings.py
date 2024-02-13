@@ -35,6 +35,8 @@ INSTALLED_APPS = [
     'django_spaghetti',
     'simple_history',
     'nested_admin',
+    'health_check',
+    'health_check.db',
 
     'users',
 ]
