@@ -6,9 +6,7 @@ from datetime import timedelta
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-env = environ.Env(
-    DEBUG=(bool, False)
-)
+env = environ.Env(DEBUG=(bool, False))
 environ.Env.read_env()
 
 DEBUG = env('DEBUG')
@@ -37,7 +35,6 @@ INSTALLED_APPS = [
     'nested_admin',
     'health_check',
     'health_check.db',
-
     'users',
 ]
 
@@ -73,9 +70,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'app.wsgi.application'
 
-DATABASES = {
-    'default': env.db()
-}
+DATABASES = {'default': env.db()}
 
 AUTH_USER_MODEL = 'users.User'
 AUTHENTICATION_BACKENDS = [
@@ -118,9 +113,7 @@ CORS_ALLOW_CREDENTIALS = True
 
 REST_FRAMEWORK = {
     'COERCE_DECIMAL_TO_STRING': False,
-    'DEFAULT_FILTER_BACKENDS': (
-        'django_filters.rest_framework.DjangoFilterBackend',
-    ),
+    'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',),
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticatedOrReadOnly',
     ),
@@ -128,7 +121,7 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication',
         'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
     ),
-    'ORDERING_PARAM': 'sort_by'
+    'ORDERING_PARAM': 'sort_by',
 }
 
 JWT_AUTH = {
@@ -139,11 +132,7 @@ JWT_AUTH = {
 
 SWAGGER_SETTINGS = {
     'SECURITY_DEFINITIONS': {
-        'Bearer': {
-            'type': 'apiKey',
-            'name': 'Authorization',
-            'in': 'header'
-        }
+        'Bearer': {'type': 'apiKey', 'name': 'Authorization', 'in': 'header'}
     }
 }
 
@@ -154,14 +143,18 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 PARLER_LANGUAGES = {
     None: (
-        {'code': 'en-us', },
-        {'code': 'ru-ru', },
+        {
+            'code': 'en-us',
+        },
+        {
+            'code': 'ru-ru',
+        },
     ),
     'default': {
-        'fallback': 'en-us',             # defaults to PARLER_DEFAULT_LANGUAGE_CODE
+        'fallback': 'en-us',  # defaults to PARLER_DEFAULT_LANGUAGE_CODE
         # the default; let .active_translations() return fallbacks too.
         'hide_untranslated': False,
-    }
+    },
 }
 PARLER_ENABLE_CACHING = False
 
