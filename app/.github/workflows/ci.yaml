@@ -31,11 +31,11 @@ jobs:
 
       - name: Flake8
         run: |
-          docker-compose run web flake8 . 
+          docker-compose run web flake8 .
 
       - name: Mypy
         run: |
-          docker-compose run web mypy . 
+          docker-compose run web mypy .
 
       - name: Check files using the black formatter
         uses: rickstaa/action-black@v1
