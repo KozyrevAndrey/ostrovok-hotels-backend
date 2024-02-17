@@ -47,5 +47,5 @@ def test_create(assert_model_and_expected_data, fake, model, model_field, fake_d
 def test_delete(generic_model_factory, model):
     model_object = generic_model_factory(model=model)
     generic_service = GenericModelService(model=model)
-    generic_service.delete_by_id(id=model_object.id)
+    generic_service.delete_by_id(object_id=model_object.id)
     assert generic_service.get_by_filters(id=model_object.id) is None
