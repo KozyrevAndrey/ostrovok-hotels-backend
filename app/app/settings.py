@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'nested_admin',
     'health_check',
     'health_check.db',
+    'dictionaries',
     'users',
 ]
 
