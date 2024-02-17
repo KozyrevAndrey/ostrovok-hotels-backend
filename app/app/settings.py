@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'nested_admin',
     'health_check',
     'health_check.db',
+    'phonenumber_field',
     'dictionaries',
     'hotels',
     'users',
