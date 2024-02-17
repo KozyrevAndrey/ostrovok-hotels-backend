@@ -1,6 +1,29 @@
-# Python API Backend
+# Backend
 
-Use this repository as template to start a new Python API Backend
+### First Run
+```sh
+docker compose build
 
-How to use
-1. Create new repository via «Use this Template» button on Github
+docker compose up
+```
+
+### Run tests
+
+```sh
+# if you run in docker compose
+docker exec -it web pytest
+```
+
+### Run flake8
+
+```sh
+# if you run in docker compose
+docker exec -it web flake8 .
+```
+
+### Run mypy
+
+```sh
+# if you run in docker compose
+docker exec -it web mypy .
+```
