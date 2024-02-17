@@ -4,7 +4,7 @@ from .models import City
 
 
 @admin.register(City)
-class CityAdmin(admin.ModelAdmin):
+class CityAdmin(admin.ModelAdmin[City]):
     list_display = (
         'id',
         'name',

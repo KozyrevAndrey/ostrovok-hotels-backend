@@ -1,3 +1,4 @@
+import django_stubs_ext
 import os
 from datetime import timedelta
 from pathlib import Path
@@ -166,3 +167,4 @@ LANGUAGES = (
     ('en-us', _('English')),
     ('ru-ru', _('Russian')),
 )
+django_stubs_ext.monkeypatch()
