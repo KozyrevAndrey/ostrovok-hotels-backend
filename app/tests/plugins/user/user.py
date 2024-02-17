@@ -1,6 +1,7 @@
 from typing import Unpack
+
 import pytest
-from mixer.backend.django import mixer
+
 from users.data import UserData
 
 

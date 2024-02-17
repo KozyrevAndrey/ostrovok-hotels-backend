@@ -4,7 +4,7 @@ from django.core.cache import BaseCache, caches
 
 
 @pytest.fixture(autouse=True)
-def media_root(
+def _media_root(
     settings: LazySettings,
     tmpdir_factory: pytest.TempPathFactory,
 ) -> None:
@@ -12,20 +12,20 @@ def media_root(
 
 
 @pytest.fixture(autouse=True)
-def password_hashers(settings: LazySettings) -> None:
+def _password_hashers(settings: LazySettings) -> None:
     settings.PASSWORD_HASHERS = [
         'django.contrib.auth.hashers.MD5PasswordHasher',
     ]
 
 
 @pytest.fixture(autouse=True)
-def auth_backends(settings: LazySettings) -> None:
+def _auth_backends(settings: LazySettings) -> None:
 
     settings.AUTHENTICATION_BACKENDS = ('django.contrib.auth.backends.ModelBackend',)
 
 
 @pytest.fixture(autouse=True)
-def debug(settings: LazySettings) -> None:
+def _debug(settings: LazySettings) -> None:
 
     settings.DEBUG = False
     for template in settings.TEMPLATES:

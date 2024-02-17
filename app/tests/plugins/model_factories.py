@@ -1,7 +1,8 @@
-import pytest
 from typing import TypeVar
-from mixer.backend.django import mixer
+
+import pytest
 from django.db import models
+from mixer.backend.django import mixer
 
 GenericModelForMixer = TypeVar('GenericModelForMixer', models.Model, str)
 

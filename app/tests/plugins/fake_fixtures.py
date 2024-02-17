@@ -1,5 +1,3 @@
-from mimesis.locales import Locale
-from mimesis import Field, Schema
 import pytest
 from mimesis import Field, Locale, Schema
 
