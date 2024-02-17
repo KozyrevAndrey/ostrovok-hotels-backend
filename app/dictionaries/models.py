@@ -3,7 +3,6 @@ from django.utils.translation import gettext_lazy as _
 
 
 class City(models.Model):
-
     name = models.CharField(max_length=1000, db_index=True, help_text=_('City Name'))
 
     class Meta:

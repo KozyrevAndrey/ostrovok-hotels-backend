@@ -6,7 +6,6 @@ ModelFields = TypeVar('ModelFields', dict[str, Any], tuple[tuple[str, Any]])
 
 
 class GenericModelService:
-
     def __init__(self, model: models.Model) -> None:
         self.model = model
 

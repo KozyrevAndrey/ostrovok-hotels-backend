@@ -20,13 +20,11 @@ def _password_hashers(settings: LazySettings) -> None:
 
 @pytest.fixture(autouse=True)
 def _auth_backends(settings: LazySettings) -> None:
-
     settings.AUTHENTICATION_BACKENDS = ('django.contrib.auth.backends.ModelBackend',)
 
 
 @pytest.fixture(autouse=True)
 def _debug(settings: LazySettings) -> None:
-
     settings.DEBUG = False
     for template in settings.TEMPLATES:
         template['OPTIONS']['debug'] = True
@@ -34,7 +32,6 @@ def _debug(settings: LazySettings) -> None:
 
 @pytest.fixture(autouse=True)
 def cache(settings: LazySettings) -> BaseCache:
-
     test_cache = 'test'
 
     settings.CACHES[test_cache] = {
