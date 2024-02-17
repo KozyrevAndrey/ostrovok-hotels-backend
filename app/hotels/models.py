@@ -3,7 +3,7 @@ from django.utils.translation import gettext_lazy as _
 from phonenumber_field.modelfields import PhoneNumberField
 
 
-class Hotels(models.Model):
+class Hotel(models.Model):
 
     name = models.CharField(_('Name'), max_length=3000, help_text=_('Hotel Name'))
     address = models.CharField(
