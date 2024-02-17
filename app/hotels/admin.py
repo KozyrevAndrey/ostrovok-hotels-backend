@@ -14,5 +14,5 @@ class HotelAdmin(admin.ModelAdmin[Hotel]):
     )
 
     @admin.display(description='City Name')
-    def get_city_name(self, obj: Hotel):
+    def get_city_name(self, obj: Hotel) -> str:
         return obj.city.name
