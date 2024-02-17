@@ -5,5 +5,6 @@ pytest_plugins = [
     'plugins.model_factories',
     'plugins.fake_fixtures',
     'plugins.dictionaries.cities',
+    'plugins.hotels.hotel',
     'plugins.user.user',
 ]
