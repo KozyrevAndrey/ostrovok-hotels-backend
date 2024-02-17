@@ -18,10 +18,10 @@ class GenericModelService:
 
     def update_by_id_with_fields_and_values(
         self,
-        id: int,
+        object_id: int,
         **fields_values,
     ) -> models.Model:
-        return self.model.objects.filter(id=id).update(**fields_values)
+        return self.model.objects.filter(id=object_id).update(**fields_values)
 
-    def delete_by_id(self, id: int) -> None:
-        return self.model.objects.filter(id=id).delete()
+    def delete_by_id(self, object_id: int) -> None:
+        return self.model.objects.filter(id=object_id).delete()
