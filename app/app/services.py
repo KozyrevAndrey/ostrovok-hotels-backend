@@ -1,7 +1,8 @@
 from typing import Any, TypeVar
-from django.db.models.query import QuerySet
+
 from django.db import models
 from django.db.models.base import ModelBase
+from django.db.models.query import QuerySet
 
 ModelFields = TypeVar('ModelFields', dict[str, Any], tuple[tuple[str, Any]])
 

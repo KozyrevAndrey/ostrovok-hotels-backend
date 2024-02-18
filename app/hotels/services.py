@@ -1,22 +1,25 @@
 from typing import Any
+
+from django.db.models.query import QuerySet
+from rest_framework.request import Request
+from rest_framework.response import Response
+
+from app import pagination as custom_pagination
 from app.services import GenericModelService
-from .models import Hotel
 
 from .data import HotelFilterData
+from .models import Hotel
 from .serializers import HotelSerializer
-from rest_framework.utils.serializer_helpers import ReturnDict
 
 
 class HotelService:
     def __init__(self):
         self.generic_service = GenericModelService(model=Hotel)
 
-    def get_hotels_by_filters(
-        self, filters: dict | None = None
-    ) -> ReturnDict[Any, Any]:
+    def get_hotels_by_filters(self, filters: dict | None = None) -> QuerySet[Hotel]:
         '''
         We can use django-filter,
-        but for this you need queryset with .all()
+        but for this you need queryset with method .all()
         and after this you filter this queryset.
         This decision gives you slow query
         '''
@@ -25,8 +28,19 @@ class HotelService:
             hotels = self.generic_service.get_queries_by_filters(**hotel_filters)
         else:
             hotels = self.generic_service.get_queries_by_filters()
-        serializer = HotelSerializer(instance=hotels, many=True)
-        return serializer.data
+        return hotels
+
+    def get_response_for_hotel_filter_view(
+        self, request: Request, filters: dict | None = None
+    ) -> Response:
+        hotels = self.get_hotels_by_filters(filters=filters)
+        return custom_pagination.get_paginated_response(
+            pagination_class=custom_pagination.CustomOffsetPagination,
+            serializer_class=HotelSerializer,
+            queryset=hotels,
+            request=request,
+            view=self,
+        )
 
     def parse_hotel_filters(self, filters: dict[str, Any]) -> HotelFilterData:
         hotel_filters = HotelFilterData()  # No error!

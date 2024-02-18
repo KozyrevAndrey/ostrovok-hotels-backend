@@ -1,5 +1,7 @@
-import pytest
 from typing import Unpack
+
+import pytest
+
 from dictionaries.data import CityData
 
 
