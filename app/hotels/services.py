@@ -8,7 +8,6 @@ from rest_framework.utils.serializer_helpers import ReturnDict
 
 
 class HotelService:
-
     def __init__(self):
         self.generic_service = GenericModelService(model=Hotel)
 

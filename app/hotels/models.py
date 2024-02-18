@@ -4,7 +4,6 @@ from phonenumber_field.modelfields import PhoneNumberField
 
 
 class Hotel(models.Model):
-
     name = models.CharField(_('Name'), max_length=3000, help_text=_('Hotel Name'))
     address = models.CharField(
         _('Address'), max_length=3000, help_text=_('Hotel Address')
