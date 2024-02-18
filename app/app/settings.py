@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'nested_admin',
     'health_check',
     'health_check.db',
+    'django_migration_linter',
     'phonenumber_field',
+    'extra_checks',
     'dictionaries',
     'hotels',
     'users',
@@ -169,4 +171,33 @@ LANGUAGES = (
     ('en-us', _('English')),
     ('ru-ru', _('Russian')),
 )
+
+
+EXTRA_CHECKS = {
+    'checks': [
+        # Forbid `unique_together`:
+        'no-unique-together',
+        # Use the indexes option instead:
+        'no-index-together',
+        # Each model must be registered in admin:
+        'model-admin',
+        # FileField/ImageField must have non empty `upload_to` argument:
+        'field-file-upload-to',
+        # Text fields shouldn't use `null=True`:
+        'field-text-null',
+        # Don't pass `null=False` to model fields (this is django default)
+        'field-null',
+        # ForeignKey fields must specify db_index explicitly if used in
+        # other indexes:
+        {'id': 'field-foreign-key-db-index', 'when': 'indexes'},
+        # If field nullable `(null=True)`,
+        # then default=None argument is redundant and should be removed:
+        'field-default-null',
+        # Fields with choices must have companion CheckConstraint
+        # to enforce choices on database level
+        'field-choices-constraint',
+    ],
+}
+
+
 django_stubs_ext.monkeypatch()
