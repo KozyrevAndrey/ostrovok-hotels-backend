@@ -27,7 +27,7 @@ def _auth_backends(settings: LazySettings) -> None:
 def _debug(settings: LazySettings) -> None:
     settings.DEBUG = False
     for template in settings.TEMPLATES:
-        template['OPTIONS']['debug'] = True
+        template['OPTIONS']['debug'] = True  # No error!
 
 
 @pytest.fixture(autouse=True)

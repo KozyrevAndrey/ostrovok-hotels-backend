@@ -1,3 +1,4 @@
+from hotels.services import HotelService
 import pytest
 from typing import Unpack
 from hotels.data import HotelData
@@ -20,3 +21,8 @@ def get_hotel_data(fake_schema, fake):
         }
 
     return factory
+
+
+@pytest.fixture()
+def hotel_service() -> HotelService:
+    return HotelService()
