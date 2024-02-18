@@ -8,7 +8,6 @@ from .models import User
 
 
 class UserService:
-
     def __init__(self):
         self.generic_model_service = GenericModelService(model=User)
 
@@ -17,7 +16,6 @@ class UserService:
 
 
 class UserRegistrationService:
-
     def __init__(self):
         self.generic_model_service = GenericModelService(model=User)
 
