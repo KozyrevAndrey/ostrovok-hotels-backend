@@ -4,7 +4,6 @@ from django.db import migrations
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ("dictionaries", "0001_initial"),
         ("hotels", "0001_initial"),
