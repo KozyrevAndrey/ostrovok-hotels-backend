@@ -1,7 +1,8 @@
 import pytest
-from users.models import User
-from dictionaries.models import City
+
 from app.services import GenericModelService
+from dictionaries.models import City
+from users.models import User
 
 pytestmark = [pytest.mark.django_db]
 

@@ -1,7 +1,9 @@
-from hotels.services import HotelService
-import pytest
 from typing import Unpack
+
+import pytest
+
 from hotels.data import HotelData
+from hotels.services import HotelService
 
 
 @pytest.fixture()

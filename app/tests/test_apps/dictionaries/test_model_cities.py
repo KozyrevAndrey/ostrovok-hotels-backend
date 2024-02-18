@@ -1,4 +1,5 @@
 import pytest
+
 from dictionaries.models import City
 
 pytestmark = [pytest.mark.django_db]

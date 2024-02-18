@@ -1,4 +1,5 @@
 import pytest
+
 from dictionaries.models import City
 from hotels.models import Hotel
 
