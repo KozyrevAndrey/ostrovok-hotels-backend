@@ -83,3 +83,4 @@ django-stubs==4.2.6
 django-health-check==3.17
 black==24.2.0
 mimesis==11.1.0
+django-phonenumber-field[phonenumberslite]==7.3.0
