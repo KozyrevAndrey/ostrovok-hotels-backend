@@ -1,12 +1,13 @@
 from typing import Any, TypeVar
 from django.db.models.query import QuerySet
 from django.db import models
+from django.db.models.base import ModelBase
 
 ModelFields = TypeVar('ModelFields', dict[str, Any], tuple[tuple[str, Any]])
 
 
 class GenericModelService:
-    def __init__(self, model: models.Model) -> None:
+    def __init__(self, model: ModelBase) -> None:
         self.model = model
 
     def get_by_filters(self, **filters: ModelFields) -> models.Model | None:
