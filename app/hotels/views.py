@@ -1,16 +1,18 @@
 from typing import Any
-from rest_framework.views import APIView
-from rest_framework.response import Response
-from rest_framework import permissions
+
 from drf_yasg.utils import swagger_auto_schema
+from rest_framework import authentication, permissions, status
+from rest_framework.request import Request
+from rest_framework.response import Response
+from rest_framework.views import APIView
+
 from .serializers import HotelFilterSerializer, HotelSerializer
 from .services import HotelService
-from rest_framework.request import Request
-from rest_framework import status
 
 
 class HotelFilterView(APIView):
-    permission_classes = [permissions.AllowAny]
+    authentication_classes = [authentication.TokenAuthentication]
+    permission_classes = [permissions.IsAuthenticated]
 
     @swagger_auto_schema(
         query_serializer=HotelFilterSerializer,
@@ -28,7 +30,8 @@ class HotelFilterView(APIView):
             return Response(
                 {'error': 'Invalid query'}, status=status.HTTP_400_BAD_REQUEST
             )
-        hotels_data = HotelService().get_hotels_by_filters(
-            filters=query_serializer.data
+        return HotelService().get_response_for_hotel_filter_view(
+            request=request, filters=query_serializer.data
         )
-        return Response(hotels_data)
+
+        # return Response(hotels_data, status=status.HTTP_200_OK)
