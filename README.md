@@ -8,6 +8,22 @@ Stack:
 - Nginx
 - Docker Compose
 
+# URL's path
+
+Base url: `http://localhost`
+
+Admin url: `http://localhost/admin/`
+
+Api: `http://localhost/api/`
+
+Swagger: `http://localhost/api/swagger/`
+
+# Admin user data
+
+l: `admin@example.com`
+
+p: `password`
+
 ## Install with docker
 ### First Run
 ```sh
@@ -40,6 +56,7 @@ docker exec -it web mypy .
 - Activate venv. `source venv/bin/activate`
 - Run migrations. `python manage.py migrate`
 - Runserver. `python manage.py runserver`
+
 ### Run Tests
 ```sh
 pytest
