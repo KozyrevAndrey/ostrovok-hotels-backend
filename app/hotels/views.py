@@ -28,10 +28,9 @@ class HotelFilterView(APIView):
         query_serializer = HotelFilterSerializer(data=request.query_params)
         if not query_serializer.is_valid():
             return Response(
-                {'error': 'Invalid query'}, status=status.HTTP_400_BAD_REQUEST
+                {'error': 'Invalid query parameters'},
+                status=status.HTTP_400_BAD_REQUEST,
             )
         return HotelService().get_response_for_hotel_filter_view(
             request=request, filters=query_serializer.data
         )
-
-        # return Response(hotels_data, status=status.HTTP_200_OK)
