@@ -49,3 +49,9 @@ docker exec -it web flake8 .
 ```sh
 docker exec -it web mypy .
 ```
+
+## If you have problems 
+
+### docker exec -it web <command> does not working
+Write `docker ps` and get name for container. 
+After this run `docker exec -it <name-that-you-get-in-docker-ps> <command>` 
