@@ -1,4 +1,13 @@
 # Backend
+
+Stack:
+- Django
+- Django Rest Framework
+- PostgreSQL
+- Pytest
+- Nginx
+- Docker Compose
+
 ## Install with docker
 ### First Run
 ```sh
@@ -27,3 +36,10 @@ docker exec -it web flake8 .
 # if you run in docker compose
 docker exec -it web mypy .
 ```
+
+## Install with Venv
+
+- Create venv. `python -m venv venv`
+- Activate venv. `source venv/bin/activate`
+- Run migrations. `python manage.py migrate`
+- Runserver. `python manage.py runserver`
