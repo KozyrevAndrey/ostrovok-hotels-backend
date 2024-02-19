@@ -51,7 +51,8 @@ docker exec -it web mypy .
 ```
 
 ## Install with Venv
-
+My recomendation - run from docker. 
+- Add env key for run in local
 - Create venv. `python -m venv venv`
 - Activate venv. `source venv/bin/activate`
 - Run migrations. `python manage.py migrate`
