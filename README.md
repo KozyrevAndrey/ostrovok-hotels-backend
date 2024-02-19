@@ -40,3 +40,12 @@ docker exec -it web mypy .
 - Activate venv. `source venv/bin/activate`
 - Run migrations. `python manage.py migrate`
 - Runserver. `python manage.py runserver`
+### Run Tests
+```sh
+pytest
+```
+
+### Run flake8 . 
+```sh
+flake8 .
+```
