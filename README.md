@@ -49,8 +49,3 @@ docker exec -it web flake8 .
 ```sh
 docker exec -it web mypy .
 ```
-
-### Run flake8 . 
-```sh
-flake8 .
-```
